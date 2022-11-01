@@ -101,6 +101,67 @@
 #             bot.send_photo(message.chat.id, photo2)
 #             bot.send_photo(message.chat.id, photo3)
 # bot.polling(none_stop=True)
+# import telebot
+# from config import token
+# from telebot import types
+
+# bot = telebot.TeleBot(token)
+
+# @bot.message_handler(commands=['start'])
+# def start(message):
+
+#  markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+#  item1 = types.KeyboardButton('Выбрать католог...')
+#  item2 = types.KeyboardButton('Тест-Драйв')
+#  markup.add(item1, item2)
+#  bot.send_message(message.chat.id, 'Добрый день!. Рады приветсвовать вас в нашем онлайн магазин "Shop.kg"', reply_markup=markup)
+#  bot.send_message(message.chat.id, 'С чем вам помочь?', reply_markup=markup)
+# @bot.message_handler(content_types = ['text'])
+# def bot_message(message):
+#     if message.chat.type == 'private':
+#         if message.text == 'Выбрать католог...':
+#             markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+#             bot.send_message(message.chat.id, 'Пожалуйста, выберите катологи одежды.' )
+#             n1 = types.KeyboardButton('Женские одежды')
+#             n2 = types.KeyboardButton('Мужские одежды')
+#             n3 = types.KeyboardButton('Дедские одежды')
+#             markup.add(n1, n2, n3)
+#             bot.send_message(message.chat.id, 'Выбрать католог...', reply_markup=markup)
+
+#         elif message.text == 'Женские одежды':
+#             photo = open('123.jpg', 'rb', '2300 som')
+#             photo2 = open('128.jpg', 'rb', '2800 som')
+#             photo3 = open('129.jpg', 'rb', '3000 som')
+#             bot.send_photo(message.chat.id, photo)
+#             # bot.send_message(message.chat.id, '1. Цена = 15000', reply_markup=markup)
+#             bot.send_photo(message.chat.id, photo2)
+#             bot.send_photo(message.chat.id, photo3)
+#         elif message.text == 'Мужские одежды': 
+#             photo = open('345.jpg', 'rb')
+#             photo2 = open('10.jpg', 'rb')
+#             photo3 = open('098.jpg', 'rb')
+#             bot.send_photo(message.chat.id, photo, '1500 сом')
+#             bot.send_photo(message.chat.id, photo2, '2500 сом' )
+#             bot.send_photo(message.chat.id, photo3, '3000 сом')
+#         elif message.text ==  'Дедские одежды':
+#             photo = open('byby.jpg', 'rb')
+#             # photo2 = open('bybe2.jpg', 'rb')
+#             photo3 = open('bybe3.jpg', 'rb')
+#             bot.send_photo(message.chat.id, photo, '1500 сом')
+#             bot.send_photo(message.chat.id, photo3, '1300 сом')
+#             bot.send_message(message.chat.id, 'Какую одежду выбрали?)' )
+#     if message.text ==  'Дедские одежды, photo3':
+#             n1 = types.KeyboardButton('Женские одежды')
+#             n2 = types.KeyboardButton('Мужские одежды')
+#             n3 = types.KeyboardButton('Дедские одежды')
+#             markup.add(n1, n2, n3)
+#             bot.send_message(message.chat.id, 'Вы уверенны? Может еще раз посмотрите?...', reply_markup=markup)
+        
+
+#     # bot.send_message(message.chat.id, 'Вот эту?)' ) 
+
+# bot.polling(none_stop=True)
+########
 import telebot
 from config import token
 from telebot import types
@@ -110,38 +171,48 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start'])
 def start(message):
 
- markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
- item1 = types.KeyboardButton('Выбрать католог...')
- item2 = types.KeyboardButton('Тест-Драйв')
- markup.add(item1, item2)
- bot.send_message(message.chat.id, 'Добрый день!. Рады приветсвовать вас в нашем онлайн магазин "Shop.kg"', reply_markup=markup)
- bot.send_message(message.chat.id, 'С чем вам помочь?', reply_markup=markup)
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    item1 = types.KeyboardButton('Хотите выбирать кофе?.')
+    item2 = types.KeyboardButton('Да хочу кофе')
+    markup.add(item1, item2)
+
+    bot.send_message(message.chat.id, 'Хотите выбирать кофе?', reply_markup=markup)
 @bot.message_handler(content_types = ['text'])
 def bot_message(message):
     if message.chat.type == 'private':
-        if message.text == 'Выбрать католог...':
-            markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-            bot.send_message(message.chat.id, 'Пожалуйста, выберите катологи одежды.' )
-            n1 = types.KeyboardButton('Женские одежды')
-            n2 = types.KeyboardButton('Мужские одежды')
-            n3 = types.KeyboardButton('Дедские одежды')
-            markup.add(n1, n2, n3)
-            bot.send_message(message.chat.id, 'Выбрать католог...', reply_markup=markup)
-
-        elif message.text == 'Женские одежды':
-            photo = open('123.jpg', 'rb')
-            # photo2 = open('', 'rb')
-            # photo3 = open('', 'rb')
-            bot.send_photo(message.chat.id, photo)
-            bot.send_message(message.chat.id, '1. Цена = 15000', reply_markup=markup)
-            # bot.send_photo(message.chat.id, photo2)
-            # bot.send_photo(message.chat.id, photo3)
-        elif message.text == 'Мужские одежды':
-            bot.send_message(message.chat.id, '1. Цена = 10000, 2. Цена = 7000, 3.Цена = 5000 ') 
-            photo = open('345.jpg', 'rb')
-            photo2 = open('10.jpg', 'rb')
-            photo3 = open('098.jpg', 'rb')
-            bot.send_photo(message.chat.id, photo, '1500 сом')
-            bot.send_photo(message.chat.id, photo2, '2500 сом' )
-            bot.send_photo(message.chat.id, photo3, '3000 сом')
+            if message.text == 'Да хочу кофе' :
+                markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+                n1 = types.KeyboardButton('Экспрессо')
+                n2 = types.KeyboardButton('Американо')
+                n3 = types.KeyboardButton('Капучино')
+                n4 = types.KeyboardButton('Лате')
+                markup.add(n1, n2, n3, n4)
+                bot.send_message(message.chat.id, 'Выбрайте кофе', reply_markup=markup)
+            elif message.text == 'Экспрессо': 
+                photo = open('4.jpg', 'rb')
+                photo2 = open('03.jpg', 'rb')
+                bot.send_photo(message.chat.id, photo, '76 som')
+                bot.send_photo(message.chat.id, photo2,  '96 som')
+                # bot.send_message(message.chat.id, 'Да пожалуйста', reply_markup=markup)
+                # bot.send_message(message.chat.id, 'Нет извините', reply_markup=markup)
+            elif message.text == 'Американо': 
+                photo = open('amerik02.jpg', 'rb')
+                photo2 = open('amerik03.jpg', 'rb')
+                bot.send_photo(message.chat.id, photo, '0,2, 68 som')
+                bot.send_photo(message.chat.id, photo2,'0.3, 84 som')
+                # bot.send_message(message.chat.id, 'Да пожалуйста', reply_markup=markup)
+                # bot.send_message(message.chat.id, 'Нет извините', reply_markup=markup)
+            elif message.text == 'Капучино': 
+                photo2 = open('kapi03.jpg', 'rb')
+                photo3 = open('kapi05.jpg', 'rb')
+                bot.send_photo(message.chat.id, photo2, '0.3, 84 som')
+                bot.send_photo(message.chat.id, photo3, '0.5, 110 som') 
+                # bot.send_message(message.chat.id, 'Да пожалуйста', reply_markup=markup)
+                # bot.send_message(message.chat.id, 'Нет извините', reply_markup=markup)
+            elif message.text == 'Лате': 
+                photo = open('late235.jpg', 'rb')
+                bot.send_photo(message.chat.id, photo, '45 som, 68 som, 120  som')
+               
+#                 bot.send_message(message.chat.id, 'Да пожалуйста', reply_markup=markup)
+#                 bot.send_message(message.chat.id, 'Нет извините', reply_markup=markup)
 bot.polling(none_stop=True)
